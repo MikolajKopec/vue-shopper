@@ -1,24 +1,34 @@
 <template>
   <div class="home">
-    <Cart></Cart>
-    <!-- <span>{{price}} aaaaa</span> -->
+    <div class="products-container">
+            <ProductCard :product="product" v-for="product in $store.getters.getProducts" :key="product['id']"></ProductCard>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 import ProductCard from '@/components/ProductCard.vue'
-import Cart from '@/components/Cart.vue'
-
 export default {
   name: 'HomeView',
   components: {
-    ProductCard,HelloWorld,Cart
-  },
+      ProductCard
+    },
   data(){
     return{
     }
   }
 }
 </script>
+
+<style>
+.products-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.products-container__product{
+  display: flex;
+  padding: 10px 20px;
+}
+
+</style>
