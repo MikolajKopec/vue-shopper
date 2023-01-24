@@ -2,6 +2,7 @@
   <div>
     <nav>
       <router-link to="/">Home</router-link> |
+      <router-link to="/products">Products</router-link> |
       <span class="link-to-cart">
         <router-link to="/cart">Cart</router-link>
         {{$store.state.cartPrice}} zł
@@ -26,10 +27,9 @@ export default {
 </script>
 
 <style>
-.content{
-  max-width: 1280px;
-  /* min-width: 800px; */
-  margin: 0 auto;
+body{
+  margin: 0;
+  overflow-x: hidden;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

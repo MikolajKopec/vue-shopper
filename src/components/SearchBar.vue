@@ -8,7 +8,7 @@
         Kategoria:
         <select @input="searchCategory" @change="updateSearchCategory">
             <option value="Wszystkie opcje">Wszystkie opcje</option>
-          <option :value="category" v-for="category in $store.getters.getCategories" :key="category">{{category}}</option>
+          <option :value="category" v-for="category in $store.getters.getCategories" :key="category">{{getCategoryName(category)}}</option>
         </select>
       </label>
       <div>
@@ -23,6 +23,14 @@ export default {
         updateSearchCategory(event){
             let category = event.target.value
             this.$store.commit('updateSearchCategory',{category})
+        },
+        getCategoryName(categoryValue){
+          switch (categoryValue) {
+            case 1:
+              return "Buty"
+            case 2:
+              return "T-shirty"
+          }
         }
     },
 

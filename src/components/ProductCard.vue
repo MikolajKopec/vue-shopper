@@ -1,10 +1,10 @@
 <template>
     <article class="product-card">
-        <img class="product-card__image" :src="product.image_url">
+        <router-link :to="{name:'product',params:{productId:product.id}}"><img class="product-card__image" :src="product.image_url"></router-link>
         <div class="product-card__description">
-            <h3>{{product.productName}} <slot name="product_quantity"></slot> </h3>
-            <span class="product-card__description-price">{{product.productPrice}}zł</span>
-            <p class="product-card__description-text">{{product.productText}}</p>
+            <h3>{{product.name}} <slot name="product_quantity">{{product.quantity}}</slot> </h3>
+            <span class="product-card__description-price">{{product.price}}zł</span>
+            <p class="product-card__description-text">{{product.description}}</p>
             <button @click="add_product_to_cart(product)">Dodaj do koszyka</button>
             <slot name="under_product"></slot>
         </div>

@@ -1,34 +1,35 @@
 <template>
-  <div class="home">
-    <div class="products-container">
-            <ProductCard :product="product" v-for="product in $store.getters.getProducts" :key="product['id']"></ProductCard>
+    <div class="home">
+        <Carousel :slides="slides" :controls="true" :indicators="true"></Carousel>
     </div>
-  </div>
-</template>
+  </template>
 
 <script>
-import ProductCard from '@/components/ProductCard.vue'
+import Carousel from "../components/carousel/Carousel.vue"; 
+
 export default {
-  name: 'HomeView',
-  components: {
-      ProductCard
+    name:"Home",
+    components:{
+        Carousel
     },
-  data(){
-    return{
-    }
-  }
+    data(){
+        return{
+            slides: [
+      "https://picsum.photos/id/1032/900/400",
+      "https://picsum.photos/id/1033/900/400",
+      "https://picsum.photos/id/1037/900/400",
+      "https://picsum.photos/id/1035/900/400",
+      "https://picsum.photos/id/1036/900/400",
+    ],
+        }
+    } 
 }
 </script>
-
 <style>
-.products-container{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(90deg, #FFFFFF 29%,rgba(0,0,0,0) 30% , rgba(0,0,0,0) 69%, #FFFFFF 70%);
 }
-.products-container__product{
-  display: flex;
-  padding: 10px 20px;
-}
-
 </style>
